@@ -8,6 +8,8 @@ export const StyledContainer = styled.div`
     align-items: center;
     justify-content: center;
 
+    padding: 30px;
+
     background-color: #1b1b1b;
     color: #fff;
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { StyledContainer } from "./styles";
 import { ReactNode } from "react";
 
