@@ -1,3 +1,4 @@
+/* ===== CSS Reset ===== */
 * {
     box-sizing: border-box;
 }
@@ -90,6 +91,7 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -104,25 +106,70 @@ nav,
 section {
     display: block;
 }
+
 body {
-    line-height: 1;
+    line-height: 1.5; /* 👈 Improved readability */
+    font-family: var(--font-poppins), sans-serif; /* 👈 Use Poppins globally */
+    background-color: #f5f5f5; /* 👈 Optional: Light background */
+    color: #333; /* 👈 Default text color */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 ol,
 ul {
     list-style: none;
 }
+
 blockquote,
 q {
     quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: "";
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+/* ===== Additional Tweaks ===== */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    border: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
 }

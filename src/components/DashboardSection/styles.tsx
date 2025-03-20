@@ -7,6 +7,7 @@ interface ContainerProps {
     justifyContent: string;
     borderRadius: string;
     flexDirection: string;
+    padding: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -18,10 +19,10 @@ export const Container = styled.div<ContainerProps>`
     align-items: ${(props) => props.alignItems};
     justify-content: ${(props) => props.justifyContent};
 
-    padding: 40px 0;
-
     background-color: #000;
     border-radius: ${(props) => props.borderRadius};
+
+    padding: ${(props) => props.padding};
 
     transition: all 0.3s ease-out;
 

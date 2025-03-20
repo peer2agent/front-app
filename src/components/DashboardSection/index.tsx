@@ -9,6 +9,7 @@ interface DashboardSectionProps {
     justifyContent?: string;
     borderRadius?: string;
     flexDirection?: string;
+    padding?: string;
 }
 
 export default function DashboardSection({
@@ -17,8 +18,9 @@ export default function DashboardSection({
     height = "100%",
     alignItems = "center",
     justifyContent = "center",
-    borderRadius = "30px",
+    borderRadius = "16px",
     flexDirection = "row",
+    padding = "0",
 }: DashboardSectionProps) {
     return (
         <Container
@@ -28,6 +30,7 @@ export default function DashboardSection({
             justifyContent={justifyContent}
             borderRadius={borderRadius}
             flexDirection={flexDirection}
+            padding={padding}
         >
             {children}
         </Container>

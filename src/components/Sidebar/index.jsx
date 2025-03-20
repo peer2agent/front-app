@@ -15,6 +15,8 @@ export default function Sidebar() {
             justifyContent="flex-start"
             flexDirection="column"
         >
+            <Divider />
+
             <ImageContainer>
                 <img src="/images/peer2agent_logo.png" />
             </ImageContainer>
