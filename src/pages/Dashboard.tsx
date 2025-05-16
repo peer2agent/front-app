@@ -17,7 +17,7 @@ export default function Dashboard() {
     }, [hasKey, navigate]);
 
     return (
-        <div className="p-4 lg:p-6">
+        <div className="py-6 pr-10 h-screen flex flex-col">
             <div className="mb-6">
                 <h1 className="text-2xl font-bold">Overview</h1>
             </div>

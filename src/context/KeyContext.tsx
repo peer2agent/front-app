@@ -1,33 +1,45 @@
-
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode } from "react";
 
 interface KeyContextType {
-  apiKey: string | null;
-  walletKey: string | null;
-  setApiKey: (key: string) => void;
-  setWalletKey: (key: string) => void;
-  hasKey: boolean;
+    privateKey: string | null;
+    publicKey: string | null;
+    walletKey: string | null;
+    setPrivateKey: (key: string) => void;
+    setPublicKey: (key: string) => void;
+    setWalletKey: (key: string) => void;
+    hasKey: boolean;
 }
 
 const KeyContext = createContext<KeyContextType | undefined>(undefined);
 
 export function KeyProvider({ children }: { children: ReactNode }) {
-  const [apiKey, setApiKey] = useState<string | null>(null);
-  const [walletKey, setWalletKey] = useState<string | null>(null);
+    const [privateKey, setPrivateKey] = useState<string | null>(null);
+    const [publicKey, setPublicKey] = useState<string | null>(null);
+    const [walletKey, setWalletKey] = useState<string | null>(null);
 
-  const hasKey = apiKey !== null;
+    const hasKey = privateKey !== null;
 
-  return (
-    <KeyContext.Provider value={{ apiKey, walletKey, setApiKey, setWalletKey, hasKey }}>
-      {children}
-    </KeyContext.Provider>
-  );
+    return (
+        <KeyContext.Provider
+            value={{
+                privateKey,
+                setPublicKey,
+                publicKey,
+                walletKey,
+                setPrivateKey,
+                setWalletKey,
+                hasKey,
+            }}
+        >
+            {children}
+        </KeyContext.Provider>
+    );
 }
 
 export function useKey() {
-  const context = useContext(KeyContext);
-  if (context === undefined) {
-    throw new Error('useKey must be used within a KeyProvider');
-  }
-  return context;
+    const context = useContext(KeyContext);
+    if (context === undefined) {
+        throw new Error("useKey must be used within a KeyProvider");
+    }
+    return context;
 }

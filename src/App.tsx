@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,27 +12,36 @@ import WalletTracker from "./pages/WalletTracker";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 
+import UnifiedDashboard from "./pages/UnifiedDashboard";
+
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <KeyProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<KeyImport />} />
-            <Route element={<Layout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/wallet-tracker" element={<WalletTracker />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </KeyProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+            <KeyProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<KeyImport />} />
+                        <Route element={<Layout />}>
+                            {/* <Route path="/dashboard" element={<Dashboard />} />
+                            <Route
+                                path="/wallet-tracker"
+                                element={<WalletTracker />}
+                            /> */}
+                            <Route
+                                path="/dashboard"
+                                element={<UnifiedDashboard />}
+                            />
+                        </Route>
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </BrowserRouter>
+            </KeyProvider>
+        </TooltipProvider>
+    </QueryClientProvider>
 );
 
 export default App;
